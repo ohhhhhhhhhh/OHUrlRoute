@@ -22,7 +22,7 @@ pod 'OHUrlRoute'
 
 ## Author
 
-ohhhhhhhhhh, zhangyue@renwohua.com
+ohhhhhhhhhh
 
 ## License
 

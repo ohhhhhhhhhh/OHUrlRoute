@@ -1,0 +1,6 @@
+framework module Pods_OHUrlRoute_Example {
+  umbrella header "Pods-OHUrlRoute_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

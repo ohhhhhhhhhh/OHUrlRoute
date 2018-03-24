@@ -1,0 +1,16 @@
+PODS:
+  - OHUrlRoute (1.0.0)
+
+DEPENDENCIES:
+  - OHUrlRoute (from `../`)
+
+EXTERNAL SOURCES:
+  OHUrlRoute:
+    :path: ../
+
+SPEC CHECKSUMS:
+  OHUrlRoute: 7fe9047e1498fecfc1a5c4f5bdf3394c332a27e6
+
+PODFILE CHECKSUM: 9c84a3b1606da8ed7a4a02eb01cca3857d078d6c
+
+COCOAPODS: 1.4.0

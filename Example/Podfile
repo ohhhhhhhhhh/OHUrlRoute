@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'OHUrlRoute_Example' do
+  pod 'OHUrlRoute', :path => '../'
+
+  target 'OHUrlRoute_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

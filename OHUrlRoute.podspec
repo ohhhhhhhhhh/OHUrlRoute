@@ -30,10 +30,11 @@ TODO: A convenient routing tool.A convenient routing tool.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'OHUrlRoute/Classes/**/*'
+# s.source_files = 'OHUrlRoute/Classes/**/*'
+  s.source_files = 'Classes/**/*'
   
   s.resource_bundles = {
-     'OHUrlRoute' => ['OHUrlRoute/Resources/Images/*.png']
+     'OHUrlRoute' => ['Resources/Images/*.png']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

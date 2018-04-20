@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'OHUrlRoute'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A convenient routing tool.'
 
 # This description is used to generate tags and improve search results.
@@ -32,9 +32,9 @@ TODO: A convenient routing tool.A convenient routing tool.
 
   s.source_files = 'OHUrlRoute/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'OHUrlRoute' => ['OHUrlRoute/Assets/*.png']
-  # }
+  s.resource_bundles = {
+     'OHUrlRoute' => ['OHUrlRoute/Resources/Images/*.png']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

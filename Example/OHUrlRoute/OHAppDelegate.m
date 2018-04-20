@@ -7,14 +7,32 @@
 //
 
 #import "OHAppDelegate.h"
+#import <OHUrlRoute/OHUrlRouteList.h>
+#import "OHViewController.h"
 
 @implementation OHAppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self configUrlRoute];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    OHViewController *vc = [[OHViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
+
+- (void)configUrlRoute {
+    NSDictionary *urlRouteDic = @{RouteTest:@"OHTestViewController"};
+    [[OHUrlRouteList shareList] addUrlRoute:urlRouteDic];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

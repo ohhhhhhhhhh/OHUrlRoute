@@ -9,6 +9,7 @@
 #import "OHUrlRouteMethod.h"
 #import "UIApplication+OHCurrentViewController.h"
 #import "OHUrlConfig.h"
+#import "OHErrorViewController.h"
 
 @implementation OHUrlRouteMethod
 
@@ -61,12 +62,12 @@
 // OHJumpVCType_Push
 + (void)oh_pushVC:(UIViewController *)viewController animated:(BOOL)animated {
     if (!viewController || ![viewController isKindOfClass:[UIViewController class]]) {
-        [OHUrlConfig oh_logError:@"---------->  ViewController is nil <----------"];
-        return;
+        [OHUrlConfig oh_logError:@"ViewController is nil"];
+        viewController = [[OHErrorViewController alloc]init];
     }
     UINavigationController *nav = [UIApplication sharedApplication].oh_currentViewController.navigationController;
     if (!nav) {
-        [OHUrlConfig oh_logError:@"---------->  just UINavigationController can pushViewController  <----------"];
+        [OHUrlConfig oh_logError:@"just UINavigationController can pushViewController"];
         nav = [[UINavigationController alloc]initWithRootViewController:[UIApplication sharedApplication].oh_currentViewController];
     }
     viewController.hidesBottomBarWhenPushed = YES;
@@ -77,8 +78,8 @@
 // OHJumpVCType_PushRemoveCurrent
 + (void)oh_pushRemoveCurrentVC:(UIViewController *)viewController animated:(BOOL)animated {
     if (!viewController || ![viewController isKindOfClass:[UIViewController class]]) {
-        [OHUrlConfig oh_logError:@"---------->  ViewController is nil <----------"];
-        return;
+        [OHUrlConfig oh_logError:@"ViewController is nil"];
+        viewController = [[OHErrorViewController alloc]init];
     }
     [self oh_pushVC:viewController animated:animated];
     UINavigationController *nav = [UIApplication sharedApplication].oh_currentViewController.navigationController;
@@ -94,7 +95,7 @@
 + (void)oh_popVC:(BOOL)animated {
     UINavigationController *nav = [UIApplication sharedApplication].oh_currentViewController.navigationController;
     if (!nav) {
-        [OHUrlConfig oh_logError:@" ---------->  just UINavigationController can popViewController  <----------"];
+        [OHUrlConfig oh_logError:@"just UINavigationController can popViewController"];
         return;
     }
     [nav popViewControllerAnimated:animated];
@@ -104,12 +105,12 @@
 // OHJumpVCType_PopToExistViewController
 + (void)oh_popToVC:(UIViewController *)viewController animated:(BOOL)animated {
     if (!viewController || ![viewController isKindOfClass:[UIViewController class]]) {
-        [OHUrlConfig oh_logError:@"---------->  ViewController is nil <----------"];
+        [OHUrlConfig oh_logError:@"ViewController is nil"];
         return;
     }
     UINavigationController *nav = [UIApplication sharedApplication].oh_currentViewController.navigationController;
     if (!nav) {
-        [OHUrlConfig oh_logError:@"---------->  just UINavigationController can popToViewController  <----------"];
+        [OHUrlConfig oh_logError:@"just UINavigationController can popToViewController"];
         return;
     }
     [nav popToViewController:viewController animated:animated];
@@ -120,7 +121,7 @@
 + (void)oh_popToRootVC:(BOOL)animated {
     UINavigationController *nav = [UIApplication sharedApplication].oh_currentViewController.navigationController;
     if (!nav) {
-        [OHUrlConfig oh_logError:@"---------->  just UINavigationController can popToRootViewController  <----------"];
+        [OHUrlConfig oh_logError:@"just UINavigationController can popToRootViewController"];
         return;
     }
     [nav popToRootViewControllerAnimated:animated];
@@ -130,12 +131,12 @@
 // OHJumpVCType_PopToNewViewController
 + (void)oh_popToNewVC:(UIViewController *)viewController animated:(BOOL)animated {
     if (!viewController || ![viewController isKindOfClass:[UIViewController class]]) {
-        [OHUrlConfig oh_logError:@"---------->  ViewController is nil <----------"];
+        [OHUrlConfig oh_logError:@"ViewController is nil"];
         return;
     }
     UINavigationController *nav = [UIApplication sharedApplication].oh_currentViewController.navigationController;
     if (!nav) {
-        [OHUrlConfig oh_logError:@"---------->  just UINavigationController has viewControllers  <----------"];
+        [OHUrlConfig oh_logError:@"just UINavigationController has viewControllers"];
         return;
     }
     NSMutableArray *vcArr = [NSMutableArray arrayWithArray:nav.viewControllers];
@@ -149,7 +150,7 @@
 // OHJumpVCType_Present
 + (void)oh_presentToVC:(UIViewController *)viewController animated:(BOOL)animated {
     if (!viewController || ![viewController isKindOfClass:[UIViewController class]]) {
-        [OHUrlConfig oh_logError:@"---------->  ViewController is nil <----------"];
+        [OHUrlConfig oh_logError:@"ViewController is nil"];
         return;
     }
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:viewController];

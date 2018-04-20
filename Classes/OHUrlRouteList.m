@@ -35,7 +35,7 @@
 
 - (void)addUrlRoute:(NSString *)urlKey urlValue:(NSString *)urlValue {
     if (!urlKey || !urlValue) {
-        [OHUrlConfig oh_logError:@"---------->  url key or url value is nil  <----------"];
+        [OHUrlConfig oh_logError:@"url key or url value is nil"];
         return;
     }
     [self.urlRouteDictionary setValue:urlValue forKey:urlKey];
@@ -43,7 +43,7 @@
 
 - (void)addUrlRoute:(NSDictionary *)urlRouteDict {
     if (urlRouteDict.allKeys.count <= 0) {
-        [OHUrlConfig oh_logError:@"---------->  urlRouteDictionary is nil  <----------"];
+        [OHUrlConfig oh_logError:@"urlRouteDictionary is nil"];
         return;
     }
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:self.urlRouteDictionary];

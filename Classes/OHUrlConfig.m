@@ -20,9 +20,9 @@
     NSString *bundleId = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
     NSString *appName = @"";
     if ([self includeChinese:appName]) {
-        appName = @"ohUrlRoute";
+        appName = @"OHUrlRoute";
     }else{
-        appName = [[self oh_scheme] lowercaseString];
+        appName = [self oh_scheme];
     }
     NSString *urlHost = [NSString stringWithFormat:@"%@://oh.%@/",appName,bundleId];
     return urlHost;
@@ -40,9 +40,8 @@
 
 + (void)oh_logError:(NSString *)error {
 #ifdef DEBUG
-    NSLog(@"\n==================================DEBUG BEGIN==================================\nclass: <%p %s:(%d) > method: %s\n%@ \n==================================DEBUG END====================================\n",self,[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__,__PRETTY_FUNCTION__,error);
+    NSLog(@"\n☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ DEBUG BEGIN ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜\nclass: <%p %s:(%d) > method: %s\n%@ \n☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ DEBUG   END ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜\n",self,[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__,__PRETTY_FUNCTION__,error);
 #endif
 }
-
 
 @end

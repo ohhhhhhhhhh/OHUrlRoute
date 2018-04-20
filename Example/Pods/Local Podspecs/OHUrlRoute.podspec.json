@@ -18,5 +18,10 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "OHUrlRoute/Classes/**/*"
+  "source_files": "OHUrlRoute/Classes/**/*",
+  "resource_bundles": {
+    "OHUrlRoute": [
+      "OHUrlRoute/Assets/*.png"
+    ]
+  }
 }

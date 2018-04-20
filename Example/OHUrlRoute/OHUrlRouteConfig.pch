@@ -1,0 +1,18 @@
+//
+//  OHUrlRouteConfig.pch
+//  OHUrlRoute
+//
+//  Created by zy on 2018/4/20.
+//  Copyright © 2018年 ohhhhhhhhhh. All rights reserved.
+//
+
+#ifndef OHUrlRouteConfig_pch
+#define OHUrlRouteConfig_pch
+
+
+static NSString *const RouteTest = @"route/test";
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* OHUrlRouteConfig_pch */

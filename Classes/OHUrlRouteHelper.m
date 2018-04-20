@@ -142,7 +142,7 @@
                     NSString *value = [params objectForKey:obj];
                     [viewController setValue:value forKey:obj];
                 }else{
-                    [OHUrlConfig oh_logError:@"---------------------->  can't find the key  <--------------------"];
+                    [OHUrlConfig oh_logError:@"can't find the key"];
                 }
             }
         }];

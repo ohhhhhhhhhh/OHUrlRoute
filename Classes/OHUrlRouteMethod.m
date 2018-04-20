@@ -68,7 +68,7 @@
     UINavigationController *nav = [UIApplication sharedApplication].oh_currentViewController.navigationController;
     if (!nav) {
         [OHUrlConfig oh_logError:@"just UINavigationController can pushViewController"];
-        nav = [[UINavigationController alloc]initWithRootViewController:[UIApplication sharedApplication].oh_currentViewController];
+        return;
     }
     viewController.hidesBottomBarWhenPushed = YES;
     [nav pushViewController:viewController animated:animated];

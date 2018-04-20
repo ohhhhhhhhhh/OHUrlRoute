@@ -108,6 +108,8 @@ static NSString *const kTitle = @"title";
 #pragma mark -helper
 - (UIImage *)bundleImageWithImageName:(NSString *)imageName {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSURL *url = [bundle URLForResource:@"OHUrlRoute" withExtension:@"bundle"];
+    bundle = [NSBundle bundleWithURL:url];
     UIImage *img = [UIImage imageNamed:imageName inBundle:bundle compatibleWithTraitCollection:nil];
     return img;
 }

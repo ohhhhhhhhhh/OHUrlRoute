@@ -119,11 +119,6 @@
         return;
     }
     
-    if ([self.tabbarViewControllersNameArray containsObject:urlKey]) {
-        NSUInteger index = [self.tabbarViewControllersNameArray indexOfObject:urlKey];
-        [self oh_tabbarSelectedIndex:index];
-        return;
-    }
     if ([OHUrlRouteHelper isWebUrl:urlKey]) {
         OHWebViewViewController *webVC = [[OHWebViewViewController alloc] init];
         if (isJoint && parameters) {
@@ -137,6 +132,13 @@
         NSString *urlHost = [[OHUrlConfig shareConfig] currentHost];
         if(![urlKey containsString:urlHost]){
             urlKey = [NSString stringWithFormat:@"%@%@",urlHost,urlKey];
+        }
+        
+        NSString *vcName = [OHUrlRouteHelper findClassName:urlKey];
+        if ([self.tabbarViewControllersNameArray containsObject:vcName]) {
+            NSUInteger index = [self.tabbarViewControllersNameArray indexOfObject:vcName];
+            [self oh_tabbarSelectedIndex:index];
+            return;
         }
         NSDictionary *params_temp = [OHUrlRouteHelper findParameters:urlKey];
         NSMutableDictionary *mutableDict = parameters?[parameters mutableCopy]:[NSMutableDictionary dictionary];

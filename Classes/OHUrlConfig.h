@@ -10,8 +10,8 @@
 
 @interface OHUrlConfig : NSObject
 
-+ (NSString *)oh_scheme;
-+ (NSString *)oh_urlHost;
-+ (void)oh_logError:(NSString *)error;
+@property (nonatomic,  copy) NSString *host;
++ (instancetype)shareConfig;
+- (NSString *)currentHost;
 
 @end

@@ -14,9 +14,9 @@
 + (BOOL)isWebUrl:(NSString *)urlKey;
 + (NSDictionary *)findParameters:(NSString *)urlKey;
 + (NSString *)jointUrl:(NSString *)urlKey extraParams:(NSDictionary *)extraParams;
-
 + (UIViewController *)viewController:(NSString *)urlKey extraParams:(NSDictionary *)extraParams;
-
 + (void)setPropertyKeysForViewController:(UIViewController *)viewController params:(NSDictionary *)params;
++ (void)oh_logError:(NSString *)error;
+
 
 @end

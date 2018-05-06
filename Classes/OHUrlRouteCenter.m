@@ -108,7 +108,7 @@
                   jumpType:(OHJumpVCType)type {
     
     if(!urlKey) {
-        [OHUrlConfig oh_logError:@"urlkey is nil"];
+        [OHUrlRouteHelper oh_logError:@"urlkey is nil"];
         OHErrorViewController *errorVC = [[OHErrorViewController alloc] init];
         UINavigationController *nav = [UIApplication sharedApplication].oh_currentViewController.navigationController;
         [nav pushViewController:errorVC animated:YES];
@@ -130,7 +130,7 @@
         webVC.loadUrlString = urlKey;
         [OHUrlRouteMethod openVC:webVC animated:animated type:type];
     }else{
-        NSString *urlHost = [OHUrlConfig oh_urlHost];
+        NSString *urlHost = [[OHUrlConfig shareConfig] currentHost];
         if(![urlKey containsString:urlHost]){
             urlKey = [NSString stringWithFormat:@"%@%@",urlHost,urlKey];
         }
@@ -148,11 +148,11 @@
 - (void)oh_tabbarSelectedIndex:(NSUInteger)selectedIndex {
     UINavigationController *nav = [UIApplication sharedApplication].oh_currentViewController.navigationController;
     if (nav.tabBarController.viewControllers.count <= selectedIndex) {
-        [OHUrlConfig oh_logError:@"UITabbarController.viewControllers.count < selctedIndex"];
+        [OHUrlRouteHelper oh_logError:@"UITabbarController.viewControllers.count < selctedIndex"];
         return;
     }
     if (!nav) {
-        [OHUrlConfig oh_logError:@"just UINavigationController can popToRootViewController"];
+        [OHUrlRouteHelper oh_logError:@"just UINavigationController can popToRootViewController"];
         return;
     }
     [nav popToRootViewControllerAnimated:NO];

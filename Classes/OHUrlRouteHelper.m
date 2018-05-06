@@ -31,7 +31,7 @@
         return @"";
     }
     NSString *key = [urlKey componentsSeparatedByString:@"?"].firstObject;
-    NSString *host = [OHUrlConfig oh_urlHost];
+    NSString *host = [[OHUrlConfig shareConfig] currentHost];
     if ([key containsString:host]) {
         NSArray *keyArr = [key componentsSeparatedByString:host];
         key = keyArr.lastObject;
@@ -142,11 +142,18 @@
                     NSString *value = [params objectForKey:obj];
                     [viewController setValue:value forKey:obj];
                 }else{
-                    [OHUrlConfig oh_logError:@"can't find the key"];
+                    [self oh_logError:@"can't find the key"];
                 }
             }
         }];
     }
 }
+
++ (void)oh_logError:(NSString *)error {
+#ifdef DEBUG
+    NSLog(@"\n☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ DEBUG BEGIN ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜\nclass: <%p %s:(%d) > method: %s\n%@ \n☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ ☞ DEBUG   END ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜ ☜\n",self,[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__,__PRETTY_FUNCTION__,error);
+#endif
+}
+
 
 @end

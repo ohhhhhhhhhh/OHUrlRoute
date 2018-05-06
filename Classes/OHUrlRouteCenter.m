@@ -27,6 +27,10 @@
          NSArray<__kindof UIViewController *> *tabbarArray = [UIApplication sharedApplication].oh_currentViewController.navigationController.tabBarController.viewControllers;
         __block NSMutableArray <NSString *>*nameArray = [NSMutableArray array];
         [tabbarArray enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if([obj isKindOfClass:[UINavigationController class]]) {
+                UINavigationController *nav = (UINavigationController *)obj;
+                obj = nav.topViewController;
+            }
             [nameArray addObject:NSStringFromClass([obj class])];
         }];
         _tabbarViewControllersNameArray = [nameArray copy];
